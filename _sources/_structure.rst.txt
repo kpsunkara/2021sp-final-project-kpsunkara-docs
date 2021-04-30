@@ -1,0 +1,96 @@
+
+{{cookiecutter.project_name}}
+-----------------------------
+
+Project description...
+
+Project Organization
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+     ├── README.md                         <- The top-level README for the project
+     │
+     ├──/docs
+     │   ├──/requirements                  <- Project/use-case related materials from product/biz teams
+     │   ├──/modeling                      <- data exploration, sourcing, analysis, feature engineering and modeling related docs
+     │   │   └── model_specs.md            <- final specs on recommended data sources, features, and algorithms
+     │   └──/development                   <- technical design and development related docs
+     │       └── hld.md                    <- high-level technical design
+     │
+     ├──/modeling
+     │   ├──/data                          <- static/external data sets
+     │   ├──/scripts                       <- modeling scripts (database queries, R scripts, jupyter notebooks, etc.)
+     │   └──/models                        <- Trained and serialized models, model predictions, or model summaries
+     │
+     ├──/src                               <- folder to organize project sources
+     │   │
+     │   ├──/main                          <- folder to organize project main sources
+     │   │   │
+     │   │   ├── __main__.py               <- default entry point
+     │   │   ├── __init__.py               <- package marker
+     │   │   │
+     │   │   └──/app                       <- app package to host use case specific packages
+     │   │       │
+     │   │       ├── __init__.py           <- package marker
+     │   │       │
+     │   │       ├──/forecast              <- package to host modules related to submission forecasting
+     │   │       │    │
+     │   │       │    ├── __init__.py      <- package marker
+     │   │       │    │
+     │   │       │    └──/usecase          <- package to host modules related to specific use case
+     │   │       │        ├── __init__.py
+     │   │       │        ├── main.py      <- module to coordinate use case related functionality
+     │   │       │        ├── data.py      <- module to source data
+     │   │       │        ├── train.py     <- module to train & save model
+     │   │       │        ├── score.py     <- module to load trained model and generate & save predictions
+     │   │       │        ├── report.py    <- module to export/push results to downstream
+     │   │       │        ├── notify.py    <- module to email forecast results
+     │   │       │        ├── config.py    <- module to hold configuration related to this package
+     │   │       │        └── test.py      <- module to hold tests for this package
+     │   │       │     
+     │   │       ├──/utils                 <- package to host common/reusable functionality across use cases
+     │   │       │   ├── __init__.py
+     │   │       │   ├── spark.py          <- module to bootstrap spark
+     │   │       │   ├── util.py           <- module to host project wide utility functions
+     │   │       │   └── runcontrol.py     <- module to host process run control functionality
+     │   │       │
+     │   │       └──/resources             <- folder to organize static resources, configurations, etc.
+     │   │            └── config.json      <- env specific configuration
+     │   │
+     │   ├──/automation                    <- folder to organize scripts for scheduling and/or manual runs 
+     │   │
+     │   ├──/test                          <- folder to organize tests and test resources
+     │   │
+     │   └──/CD                            <- folder to organize build & deploy configurations/scripts
+     │
+     └── pom.xml
+
+Build package structure
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+   build-artifact.tar.gz
+     │
+     ├──/deployments
+     │   │
+     │   └──/use-case-name
+     │       ├── __main__.py          <- default entry point
+     │       ├── automation-scripts   <- all files from */src/automation folder
+     │       └── app-archive.zip      <- archive of everything under */src/main
+     │      
+     └──/xlr_install
+         └── CD-scripts           <- all files from */src/CD/xlr_install
+
+Deployment structure
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+   /acme/<lob-root>/<use-case-name>/<dev|app>/deployments
+     │
+     └──/use-case-name
+         ├── __main__.py          <- default entry point
+         ├── automation-scripts   <- all files from */src/automation folder
+         └── app-archive.zip      <- archive of everything under */src

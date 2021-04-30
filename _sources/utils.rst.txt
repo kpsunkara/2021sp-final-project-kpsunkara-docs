@@ -1,0 +1,14 @@
+Common Utilities
+================
+
+**Application configuration**
+
+.. automodule:: app.utils.config
+
+**Email utility**
+
+.. automodule:: app.utils.email
+
+**Spark factory**
+
+.. automodule:: app.utils.spark

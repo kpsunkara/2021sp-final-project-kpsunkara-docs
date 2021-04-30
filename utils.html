@@ -1,0 +1,202 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Common Utilities &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration" href="config.html" />
+    <link rel="prev" title="Usecase specific modules" href="usecase.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="Configuration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="usecase.html" title="Usecase specific modules"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Common Utilities</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="common-utilities">
+<h1>Common Utilities<a class="headerlink" href="#common-utilities" title="Permalink to this headline">¶</a></h1>
+<p><strong>Application configuration</strong></p>
+<span class="target" id="module-app.utils.config"></span><p>this module hosts config utility functions</p>
+<dl class="py class">
+<dt id="app.utils.config.ENVS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">ENVS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.ENVS" title="Permalink to this definition">¶</a></dt>
+<dd><p>environment list</p>
+<dl class="py attribute">
+<dt id="app.utils.config.ENVS.DEV">
+<code class="sig-name descname"><span class="pre">DEV</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'dev'</span></em><a class="headerlink" href="#app.utils.config.ENVS.DEV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.utils.config.ENVS.GOLD">
+<code class="sig-name descname"><span class="pre">GOLD</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'gold'</span></em><a class="headerlink" href="#app.utils.config.ENVS.GOLD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.utils.config.ENVS.PLATINUM">
+<code class="sig-name descname"><span class="pre">PLATINUM</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'plat'</span></em><a class="headerlink" href="#app.utils.config.ENVS.PLATINUM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.utils.config.ENVS.SILVER">
+<code class="sig-name descname"><span class="pre">SILVER</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'silver'</span></em><a class="headerlink" href="#app.utils.config.ENVS.SILVER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="app.utils.config.ENVS.parse">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.ENVS.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.utils.config.KEYS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">KEYS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.KEYS" title="Permalink to this definition">¶</a></dt>
+<dd><p>configuration key list</p>
+<dl class="py attribute">
+<dt id="app.utils.config.KEYS.EMAIL_FROM">
+<code class="sig-name descname"><span class="pre">EMAIL_FROM</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'email.from'</span></em><a class="headerlink" href="#app.utils.config.KEYS.EMAIL_FROM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.utils.config.KEYS.SMTP_PORT">
+<code class="sig-name descname"><span class="pre">SMTP_PORT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'smtp.port'</span></em><a class="headerlink" href="#app.utils.config.KEYS.SMTP_PORT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app.utils.config.KEYS.SMTP_SERVER">
+<code class="sig-name descname"><span class="pre">SMTP_SERVER</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'smtp.server'</span></em><a class="headerlink" href="#app.utils.config.KEYS.SMTP_SERVER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.config.get">
+<code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.config.get_active_env">
+<code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">get_active_env</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.get_active_env" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Email utility</strong></p>
+<span class="target" id="module-app.utils.email"></span><p>this module hosts helper functions for email notifications</p>
+<p><strong>Spark factory</strong></p>
+<span class="target" id="module-app.utils.spark"></span><p>Module to host spark related utility functions.</p>
+<dl class="py function">
+<dt id="app.utils.spark.appId">
+<code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">appId</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.appId" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.spark.sparkContext">
+<code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">sparkContext</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.sparkContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.spark.sqlContext">
+<code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">sqlContext</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.sqlContext" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.spark.version">
+<code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">version</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="usecase.html"
+                        title="previous chapter">Usecase specific modules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="config.html"
+                        title="next chapter">Configuration</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/utils.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="Configuration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="usecase.html" title="Usecase specific modules"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Common Utilities</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Acme, Inc.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jenkins Pipeline component for pySpark apps &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Configuration" href="config.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="Configuration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Jenkins Pipeline component for pySpark apps</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="jenkins-pipeline-component-for-pyspark-apps">
+<h1>Jenkins Pipeline component for pySpark apps<a class="headerlink" href="#jenkins-pipeline-component-for-pyspark-apps" title="Permalink to this headline">¶</a></h1>
+<p>To provide a consistent and repeatable build, test, scan, package and deployment pipeline for pySpark apps for distributed processing.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Orchestrates the build, package and deployment stages for Python + Spark (pySpark) apps</p></li>
+<li><p>Performs sub module packaging for Python code into a distributable archive, which is used to serve up pySpark apps to Spark executors for distributed processing workloads</p></li>
+<li><p>Organizes Python entry point module and the python distributable archive into one final deployable artifact through XLR</p></li>
+<li><p>Packages necessary XLR install scripts for automated deployment of the final artifact into Bigdata/Cornerstone or a similar environment supporting spark workloads</p></li>
+<li><p>Supports packaging of pySpark ML apps</p></li>
+<li><p>Bundles multiple pipeline steps into one stage to promote consistent build, package and deployment process for pySpark apps</p></li>
+<li><p>Hooks provide the ability to run custom actions between predefined stages</p></li>
+<li><p>Implements a design pattern using Groovy Closures to promote an object oriented reuse of code across Global Vars/ Pipeline components</p></li>
+</ul>
+<img alt="_images/pipeline.png" src="_images/pipeline.png" />
+<p>The pipeline starts with checkout and triggers maven build, package and deploy goals using either <cite>release</cite>, <cite>test</cite> or <cite>dev</cite> profile tag. The effective profile tag takes on a value of either <code class="docutils literal notranslate"><span class="pre">release</span></code> or <code class="docutils literal notranslate"><span class="pre">test</span></code> by matching the name of the build branch with <code class="docutils literal notranslate"><span class="pre">releaseBranches</span></code> or <code class="docutils literal notranslate"><span class="pre">testBranches</span></code> parameters (see parameter list below), otherwise it defaults to <code class="docutils literal notranslate"><span class="pre">dev</span></code>. The final artifact version identifier is set to either <code class="docutils literal notranslate"><span class="pre">RELEASE</span></code>, if the branch name matches with <code class="docutils literal notranslate"><span class="pre">releaseBranches</span></code>, otherwise it’s set to <code class="docutils literal notranslate"><span class="pre">SNAPSHOT</span></code>. This step also automates deploying the package through XLR. If sonarProfile details are provided, <cite>sonarscanonly</cite> is triggered.</p>
+</div>
+<div class="section" id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>testBranches</p></td>
+<td><p>depending on the branching model used by project team, provide one or more branch names from which integration test builds are created (optional). example: [‘develop’]; default: develop</p></td>
+</tr>
+<tr class="row-odd"><td><p>releaseBranches</p></td>
+<td><p>depending on the branching model used by project team, provide one or more branch names from which release builds are created (optional). example: [‘release’,’master’]; default: [‘release’,’master’]</p></td>
+</tr>
+<tr class="row-even"><td><p>sonarProfile</p></td>
+<td><p>a parameterish-block or a map of details of project’s sonarqube scan profile (optional). When present, user property is required. projectName and projectUrl properties are optional and default to details from the build branch. ‘language’, ‘qualitygate’ and ‘sources’ are optional and passed thro.</p></td>
+</tr>
+<tr class="row-odd"><td><p>xlrProfile</p></td>
+<td><p>a parameterish-block or a map of project’s XLR deployment details (optional). When present, all parameters are required. Note: To generate XLR subscription ID, refer: <a class="reference external" href="https://enterprise-confluence.acme.com/confluence/pages/viewpage.action?spaceKey=ECCS&amp;title=XLR+-+API+details">https://enterprise-confluence.acme.com/confluence/pages/viewpage.action?spaceKey=ECCS&amp;title=XLR+-+API+details</a></p></td>
+</tr>
+<tr class="row-even"><td><p>slackProfile</p></td>
+<td><p>a parameterish-block or a map of team’s slack channel details to send build status notifications. Note: To generate slaockToken, refer: <a class="reference external" href="https://enterprise-confluence.acme.com/confluence/display/GAF/CTO+Shared+Library#CTOSharedLibrary-IntegratingJenkinswithSlackforBuildNotifications">https://enterprise-confluence.acme.com/confluence/display/GAF/CTO+Shared+Library#CTOSharedLibrary-IntegratingJenkinswithSlackforBuildNotifications</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>buildArgs</p></td>
+<td><p>maven build arguments (optional)</p></td>
+</tr>
+<tr class="row-even"><td><p>preBuild</p></td>
+<td><p>code block/hook to run before building the package(s)</p></td>
+</tr>
+<tr class="row-odd"><td><p>postBuild</p></td>
+<td><p>code block/hook to run after building the package(s) and installed to Nexus</p></td>
+</tr>
+<tr class="row-even"><td><p>preDeploy</p></td>
+<td><p>code block/hook to run before submitting XLR deployment</p></td>
+</tr>
+<tr class="row-odd"><td><p>postBuild</p></td>
+<td><p>code block/hook to run after submitting XLR deployment</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sample-jenkinsfile">
+<h2>Sample Jenkinsfile<a class="headerlink" href="#sample-jenkinsfile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="cp">#!/usr/bin/env groovy</span>
+
+<span class="nd">@Library</span><span class="o">(</span><span class="s1">&#39;EnterpriseSharedLibrary&#39;</span><span class="o">)</span> <span class="n">__</span>
+
+<span class="n">node</span><span class="o">(</span><span class="s1">&#39;cicd-build&#39;</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">stage</span><span class="o">(</span><span class="s1">&#39;Trigger BD ML Pipeline&#39;</span><span class="o">){</span>
+        <span class="n">bdmlPipeline</span><span class="o">{</span>
+            <span class="n">testBranches</span><span class="o">=[</span><span class="s1">&#39;develop&#39;</span><span class="o">]</span>
+            <span class="n">releaseBranches</span><span class="o">=[</span><span class="s1">&#39;master&#39;</span><span class="o">]</span>
+            <span class="cm">/*</span>
+<span class="cm">            xlrProfile={</span>
+<span class="cm">                central_id=&#39;{{cookiecutter.central_id}}&#39;</span>
+<span class="cm">                testTemplateAlias=&quot;{{cookiecutter.xlr_test_template}}&quot;</span>
+<span class="cm">                testSubscriptionID=&quot;{{cookiecutter.xlr_test_subscriptionID}}&quot;</span>
+<span class="cm">                releaseTemplateAlias=&quot;{{cookiecutter.xlr_prod_template}}&quot;</span>
+<span class="cm">                releaseSubscriptionID=&quot;{{cookiecutter.xlr_prod_subscriptionID}}&quot;</span>
+<span class="cm">            }</span>
+<span class="cm">            sonarProfile={</span>
+<span class="cm">                user= &#39;{{cookiecutter.email}}&#39;</span>
+<span class="cm">            }</span>
+<span class="cm">            slackProfile={</span>
+<span class="cm">                slackChannel=&#39;{{cookiecutter.project_name}}-devops&#39;</span>
+<span class="cm">                slackToken=&#39;???&#39;</span>
+<span class="cm">                slackDomain=&quot;acme-???.slack.com&quot;</span>
+<span class="cm">            }*/</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Jenkins Pipeline component for pySpark apps</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#sample-jenkinsfile">Sample Jenkinsfile</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="config.html"
+                        title="previous chapter">Configuration</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pipeline.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="config.html" title="Configuration"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Jenkins Pipeline component for pySpark apps</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Acme, Inc.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

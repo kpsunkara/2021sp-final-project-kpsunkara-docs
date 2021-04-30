@@ -1,0 +1,7 @@
+
+Application Entry point
+=======================
+.. automodule:: cli
+
+    Command line application entry point handler :py:class:`zipfile.ZipFile`.
+    Creates :class:`pyspark.context.SparkContext`

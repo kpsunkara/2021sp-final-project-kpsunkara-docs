@@ -1,0 +1,264 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usecase specific modules &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Common Utilities" href="utils.html" />
+    <link rel="prev" title="Application Entry point" href="app.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="utils.html" title="Common Utilities"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="app.html" title="Application Entry point"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Usecase specific modules</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="usecase-specific-modules">
+<h1>Usecase specific modules<a class="headerlink" href="#usecase-specific-modules" title="Permalink to this headline">¶</a></h1>
+<p><strong>Main module</strong></p>
+<span class="target" id="module-main"></span><p>Use case entry point module</p>
+<dl class="py class">
+<dt id="main.Cli">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">main.</span></code><code class="sig-name descname"><span class="pre">Cli</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Cli" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use case specific cli/entry-point class</p>
+<dl class="py method">
+<dt id="main.Cli.process">
+<code class="sig-name descname"><span class="pre">process</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.Cli.process" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="main.TASKS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">main.</span></code><code class="sig-name descname"><span class="pre">TASKS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enumeration.</p>
+<dl class="py attribute">
+<dt id="main.TASKS.EXTRACT">
+<code class="sig-name descname"><span class="pre">EXTRACT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#main.TASKS.EXTRACT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="main.TASKS.FORECAST">
+<code class="sig-name descname"><span class="pre">FORECAST</span></code><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#main.TASKS.FORECAST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="main.TASKS.NOTIFY">
+<code class="sig-name descname"><span class="pre">NOTIFY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#main.TASKS.NOTIFY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="main.TASKS.REPORT">
+<code class="sig-name descname"><span class="pre">REPORT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#main.TASKS.REPORT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="main.TASKS.TEST">
+<code class="sig-name descname"><span class="pre">TEST</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9</span></em><a class="headerlink" href="#main.TASKS.TEST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="main.TASKS.TRAIN">
+<code class="sig-name descname"><span class="pre">TRAIN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">5</span></em><a class="headerlink" href="#main.TASKS.TRAIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.compare">
+<code class="sig-name descname"><span class="pre">compare</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.compare" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.equals">
+<code class="sig-name descname"><span class="pre">equals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.equals" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.equals_any">
+<code class="sig-name descname"><span class="pre">equals_any</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tasks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.equals_any" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.first_task">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">first_task</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.first_task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.get_next_tasks">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_next_tasks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromtask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.get_next_tasks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.last_task">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">last_task</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.last_task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.next_task">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">next_task</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.next_task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.parse">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="main.TASKS.previous_task">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">previous_task</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.previous_task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<p><strong>Data extraction and transformation</strong></p>
+<span class="target" id="module-data"></span><dl class="py function">
+<dt id="data.extract">
+<code class="sig-prename descclassname"><span class="pre">data.</span></code><code class="sig-name descname"><span class="pre">extract</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>extracts data and stores into use case specific area</p>
+</dd></dl>
+
+<p><strong>Model training</strong></p>
+<span class="target" id="module-train"></span><p>module to host functionality related to model training</p>
+<dl class="py function">
+<dt id="train.train">
+<code class="sig-prename descclassname"><span class="pre">train.</span></code><code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#train.train" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Model scoring</strong></p>
+<span class="target" id="module-score"></span><p>module to host functionality related to usecases/score</p>
+<dl class="py function">
+<dt id="score.forecast">
+<code class="sig-prename descclassname"><span class="pre">score.</span></code><code class="sig-name descname"><span class="pre">forecast</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#score.forecast" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Model testing</strong></p>
+<span class="target" id="module-test"></span><dl class="py function">
+<dt id="test.test">
+<code class="sig-prename descclassname"><span class="pre">test.</span></code><code class="sig-name descname"><span class="pre">test</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p><strong>Push results</strong></p>
+<span class="target" id="module-report"></span><p>export usecases results to a file</p>
+<dl class="py function">
+<dt id="report.report">
+<code class="sig-prename descclassname"><span class="pre">report.</span></code><code class="sig-name descname"><span class="pre">report</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.report" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>exported file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Generate notifications</strong></p>
+<span class="target" id="module-notify"></span><p>push results to downstream</p>
+<dl class="py function">
+<dt id="notify.notify">
+<code class="sig-prename descclassname"><span class="pre">notify.</span></code><code class="sig-name descname"><span class="pre">notify</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reportPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#notify.notify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="app.html"
+                        title="previous chapter">Application Entry point</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="utils.html"
+                        title="next chapter">Common Utilities</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/usecase.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="utils.html" title="Common Utilities"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="app.html" title="Application Entry point"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Usecase specific modules</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Acme, Inc.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>

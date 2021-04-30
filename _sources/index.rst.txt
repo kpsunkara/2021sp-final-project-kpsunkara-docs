@@ -1,0 +1,31 @@
+Welcome to Machine Learning Cookiecutter repo
+=============================================
+
+This repo serves as a template to generate a project structure and boilerplate
+code for **Pyspark apps for Machine Learning**, targeting Bigdata environment.
+In addition to generating boilerplate code, the template also includes artifacts & scripts
+required to build, package and deploy the app via CI/CD pipeline, in a single click!
+
+
+Contents
+~~~~~~~~
+
+.. toctree::
+   :maxdepth: 2
+
+    Create a Project from template <../_readme>
+    Template Structure <../_structure>
+    Entry Point <app>
+    Use Case Modules <usecase>
+    Common Utilities <utils>
+    Configuration <config>
+    Jenkins Pipeline <pipeline>
+
+Indices and tables
+~~~~~~~~~~~~~~~~~~
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+

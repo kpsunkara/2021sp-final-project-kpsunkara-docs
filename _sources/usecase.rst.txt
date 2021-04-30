@@ -1,0 +1,32 @@
+Usecase specific modules
+========================
+
+**Main module**
+
+.. automodule:: main
+
+**Data extraction and transformation**
+
+.. automodule:: data
+
+**Model training**
+
+.. automodule:: train
+
+**Model scoring**
+
+.. automodule:: score
+
+**Model testing**
+
+.. automodule:: test
+
+**Push results**
+
+.. automodule:: report
+
+**Generate notifications**
+
+.. automodule:: notify
+
+

@@ -1,0 +1,213 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{cookiecutter.project_name}} &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Application Entry point" href="app.html" />
+    <link rel="prev" title="Welcome to Machine Learning Cookiecutter repo" href="_readme.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="app.html" title="Application Entry point"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="_readme.html" title="Welcome to Machine Learning Cookiecutter repo"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">{{cookiecutter.project_name}}</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cookiecutter-project-name">
+<h1>{{cookiecutter.project_name}}<a class="headerlink" href="#cookiecutter-project-name" title="Permalink to this headline">¶</a></h1>
+<p>Project description…</p>
+<div class="section" id="project-organization">
+<h2>Project Organization<a class="headerlink" href="#project-organization" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── README.md                         &lt;- The top-level README for the project
+│
+├──/docs
+│   ├──/requirements                  &lt;- Project/use-case related materials from product/biz teams
+│   ├──/modeling                      &lt;- data exploration, sourcing, analysis, feature engineering and modeling related docs
+│   │   └── model_specs.md            &lt;- final specs on recommended data sources, features, and algorithms
+│   └──/development                   &lt;- technical design and development related docs
+│       └── hld.md                    &lt;- high-level technical design
+│
+├──/modeling
+│   ├──/data                          &lt;- static/external data sets
+│   ├──/scripts                       &lt;- modeling scripts (database queries, R scripts, jupyter notebooks, etc.)
+│   └──/models                        &lt;- Trained and serialized models, model predictions, or model summaries
+│
+├──/src                               &lt;- folder to organize project sources
+│   │
+│   ├──/main                          &lt;- folder to organize project main sources
+│   │   │
+│   │   ├── __main__.py               &lt;- default entry point
+│   │   ├── __init__.py               &lt;- package marker
+│   │   │
+│   │   └──/app                       &lt;- app package to host use case specific packages
+│   │       │
+│   │       ├── __init__.py           &lt;- package marker
+│   │       │
+│   │       ├──/forecast              &lt;- package to host modules related to submission forecasting
+│   │       │    │
+│   │       │    ├── __init__.py      &lt;- package marker
+│   │       │    │
+│   │       │    └──/usecase          &lt;- package to host modules related to specific use case
+│   │       │        ├── __init__.py
+│   │       │        ├── main.py      &lt;- module to coordinate use case related functionality
+│   │       │        ├── data.py      &lt;- module to source data
+│   │       │        ├── train.py     &lt;- module to train &amp; save model
+│   │       │        ├── score.py     &lt;- module to load trained model and generate &amp; save predictions
+│   │       │        ├── report.py    &lt;- module to export/push results to downstream
+│   │       │        ├── notify.py    &lt;- module to email forecast results
+│   │       │        ├── config.py    &lt;- module to hold configuration related to this package
+│   │       │        └── test.py      &lt;- module to hold tests for this package
+│   │       │
+│   │       ├──/utils                 &lt;- package to host common/reusable functionality across use cases
+│   │       │   ├── __init__.py
+│   │       │   ├── spark.py          &lt;- module to bootstrap spark
+│   │       │   ├── util.py           &lt;- module to host project wide utility functions
+│   │       │   └── runcontrol.py     &lt;- module to host process run control functionality
+│   │       │
+│   │       └──/resources             &lt;- folder to organize static resources, configurations, etc.
+│   │            └── config.json      &lt;- env specific configuration
+│   │
+│   ├──/automation                    &lt;- folder to organize scripts for scheduling and/or manual runs
+│   │
+│   ├──/test                          &lt;- folder to organize tests and test resources
+│   │
+│   └──/CD                            &lt;- folder to organize build &amp; deploy configurations/scripts
+│
+└── pom.xml
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-package-structure">
+<h2>Build package structure<a class="headerlink" href="#build-package-structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>build-artifact.tar.gz
+  │
+  ├──/deployments
+  │   │
+  │   └──/use-case-name
+  │       ├── __main__.py          &lt;- default entry point
+  │       ├── automation-scripts   &lt;- all files from */src/automation folder
+  │       └── app-archive.zip      &lt;- archive of everything under */src/main
+  │
+  └──/xlr_install
+      └── CD-scripts           &lt;- all files from */src/CD/xlr_install
+</pre></div>
+</div>
+</div>
+<div class="section" id="deployment-structure">
+<h2>Deployment structure<a class="headerlink" href="#deployment-structure" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/acme/&lt;lob-root&gt;/&lt;use-case-name&gt;/&lt;dev|app&gt;/deployments
+  │
+  └──/use-case-name
+      ├── __main__.py          &lt;- default entry point
+      ├── automation-scripts   &lt;- all files from */src/automation folder
+      └── app-archive.zip      &lt;- archive of everything under */src
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">{{cookiecutter.project_name}}</a><ul>
+<li><a class="reference internal" href="#project-organization">Project Organization</a></li>
+<li><a class="reference internal" href="#build-package-structure">Build package structure</a></li>
+<li><a class="reference internal" href="#deployment-structure">Deployment structure</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="_readme.html"
+                        title="previous chapter">Welcome to Machine Learning Cookiecutter repo</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="app.html"
+                        title="next chapter">Application Entry point</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/_structure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="app.html" title="Application Entry point"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="_readme.html" title="Welcome to Machine Learning Cookiecutter repo"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">{{cookiecutter.project_name}}</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Acme, Inc.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+  </body>
+</html>
