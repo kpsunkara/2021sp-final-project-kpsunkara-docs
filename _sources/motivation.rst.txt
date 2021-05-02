@@ -1,0 +1,19 @@
+Motivation
+----------
+
+Data Scientists and Machine Learning Engineers across the organization primarily develop use cases in notebooks running on centralized Jupyter Server instances hosted on dedicated nodes connected to large bigdata clusters running Apache PySpark and MapReduce workloads.
+
+While this setup provides an interactive environment for use case development with convenient access to Petabytes of data and massively distributed processing power, the process itself and the resulting artifacts lack standard structure commonly found in enterprise grade applications and do not support the enterprise software change management processes leading to lack of repeatability, maintainability and compliance to governance processes.
+
+Objective
+---------
+Design and develop a Python based light-weight framework for Data Science projects that promotes:
+
+* well defined project structure, artifacts and organization
+* boilerplate code to give head start to common tasks and promote best practices
+* provide plumbing code to automate tasks to ensure code quality, packaging and continuous integration and deployment leveraging enterprise tooling
+* reference implementation of the proposed project structure using cookiecutter template
+* reference implementation of python module structure for various data science pipeline tasks and boilerplate code
+* reference implementation of Jenkins + XLR pipeline to build, scan, test and deploy PySpark data science applications to test and production bigdata clusters
+
+This framework aims to enable Data Science practitioners and Engineers to close gaps with organization’s software development life cycle and governance processes, while continue to provide the flexibility and support for processes specific to Data Science development life cycle.

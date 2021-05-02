@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Machine Learning Cookiecutter repo &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <title>Welcome to Data Science Project Template &#8212; Data Science Project Template 0.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     
@@ -17,8 +17,8 @@
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="{{cookiecutter.project_name}}" href="_structure.html" />
-    <link rel="prev" title="Welcome to Machine Learning Cookiecutter repo" href="index.html" />
+    <link rel="next" title="Application Entry point" href="app.html" />
+    <link rel="prev" title="{{cookiecutter.project_name}}" href="_structure.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -34,13 +34,13 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="_structure.html" title="{{cookiecutter.project_name}}"
+          <a href="app.html" title="Application Entry point"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Machine Learning Cookiecutter repo"
+          <a href="_structure.html" title="{{cookiecutter.project_name}}"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Welcome to Machine Learning Cookiecutter repo</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to Data Science Project Template</a></li> 
       </ul>
     </div>  
 
@@ -49,21 +49,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-machine-learning-cookiecutter-repo">
-<h1>Welcome to Machine Learning Cookiecutter repo<a class="headerlink" href="#welcome-to-machine-learning-cookiecutter-repo" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-data-science-project-template">
+<h1>Welcome to Data Science Project Template<a class="headerlink" href="#welcome-to-data-science-project-template" title="Permalink to this headline">¶</a></h1>
 <p>This repo serves as a template to generate a project structure and boilerplate
-code for <strong>Pyspark apps for Machine Learning and Deep Learning</strong>, targeting Bigdata environment.
+code for <strong>Pyspark apps for Data Science</strong>, targeting Bigdata environment.
 In addition to generating boilerplate code, the template also includes artifacts &amp; scripts
 required to build, package and deploy the app via CI/CD pipeline, in a single click!</p>
 <div class="section" id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Install the latest Cookiecutter package</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">cookiecutter</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">ci</span><span class="o">-</span><span class="n">repo</span><span class="o">.</span><span class="n">acme</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">repository</span><span class="o">/</span><span class="n">pypi</span><span class="o">/</span><span class="n">simple</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">cookiecutter</span> <span class="o">--</span><span class="n">index</span><span class="o">-</span><span class="n">url</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pypi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">simple</span>
 </pre></div>
 </div>
 </li>
-<li><p>Collect following information</p></li>
+<li><p>Have the following information handy</p></li>
 </ol>
 <table class="docutils align-default">
 <colgroup>
@@ -82,8 +82,8 @@ required to build, package and deploy the app via CI/CD pipeline, in a single cl
 <td><p>Project short name - used to name the project folder, build artifact, etc.</p></td>
 <td><p>my-ml-project</p></td>
 </tr>
-<tr class="row-odd"><td><p>Central ID</p></td>
-<td><p>Central (CAR or AIM) ID - used to identify stash repo, XLR releae template, etc.</p></td>
+<tr class="row-odd"><td><p>App ID</p></td>
+<td><p>Acme Application inventory ID - used to identify SCM repo, XL Release (XLR) template, etc.</p></td>
 <td><p>6000000001</p></td>
 </tr>
 <tr class="row-even"><td><p>Email</p></td>
@@ -99,19 +99,19 @@ required to build, package and deploy the app via CI/CD pipeline, in a single cl
 <td><p>/acme/cto/acmeml</p></td>
 </tr>
 <tr class="row-odd"><td><p>XLR Template alias*</p></td>
-<td><p>Name of the XLR template setup through Development Tool Central (<a class="reference external" href="https://dtcentral.acme.com">https://dtcentral.acme.com</a>)</p></td>
+<td><p>Name of the XL Release (XLR) template setup through Development Tool Central</p></td>
 <td><p>acmeml-silver</p></td>
 </tr>
 <tr class="row-even"><td><p>XLR Subscription ID*</p></td>
-<td><p>XLR subscription token setup for the above XLR Template. <em>Please refer: https://enterprise-confluence.acme.com/confluence/pages/viewpage.action?spaceKey=ECCS&amp;title=XLR+-+API+details</em></p></td>
+<td><p>XLR subscription token setup for the above XLR Template</p></td>
 <td><p>uuid</p></td>
 </tr>
 </tbody>
 </table>
 <p><em>*Needed for pipeline as code deployments only</em></p>
 </div>
-<div class="section" id="generate-your-python-machine-learning-project">
-<h2>Generate your Python Machine Learning project<a class="headerlink" href="#generate-your-python-machine-learning-project" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generate-your-project">
+<h2>Generate your project<a class="headerlink" href="#generate-your-project" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cookiecutter</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">stash</span><span class="o">.</span><span class="n">acme</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">stash</span><span class="o">/</span><span class="n">scm</span><span class="o">/</span><span class="mi">6000000001</span><span class="o">/</span><span class="n">cookiecutter</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
@@ -135,20 +135,20 @@ required to build, package and deploy the app via CI/CD pipeline, in a single cl
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to Machine Learning Cookiecutter repo</a><ul>
+<li><a class="reference internal" href="#">Welcome to Data Science Project Template</a><ul>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
-<li><a class="reference internal" href="#generate-your-python-machine-learning-project">Generate your Python Machine Learning project</a></li>
+<li><a class="reference internal" href="#generate-your-project">Generate your project</a></li>
 <li><a class="reference internal" href="#feedback-contributions">Feedback &amp; Contributions</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to Machine Learning Cookiecutter repo</a></p>
-  <h4>Next topic</h4>
   <p class="topless"><a href="_structure.html"
-                        title="next chapter">{{cookiecutter.project_name}}</a></p>
+                        title="previous chapter">{{cookiecutter.project_name}}</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="app.html"
+                        title="next chapter">Application Entry point</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -180,13 +180,13 @@ required to build, package and deploy the app via CI/CD pipeline, in a single cl
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="_structure.html" title="{{cookiecutter.project_name}}"
+          <a href="app.html" title="Application Entry point"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to Machine Learning Cookiecutter repo"
+          <a href="_structure.html" title="{{cookiecutter.project_name}}"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Welcome to Machine Learning Cookiecutter repo</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to Data Science Project Template</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

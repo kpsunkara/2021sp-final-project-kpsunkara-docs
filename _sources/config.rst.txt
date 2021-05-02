@@ -1,7 +1,19 @@
 Configuration
 =============
 
-**Application configuration**
+:ref:`proj-config`
 
+:ref:`app-config`
+
+.. _proj-config:
+
+Project configuration
+~~~~~~~~~~~~~~~~~~~~~
+.. automodule:: app.utils.config
+
+.. _app-config:
+
+Application configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~
 .. automodule:: app.resources.config
    :no-undoc-members:

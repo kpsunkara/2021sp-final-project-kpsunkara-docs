@@ -1,7 +1,34 @@
 
 Application Entry point
 =======================
-.. automodule:: cli
 
-    Command line application entry point handler :py:class:`zipfile.ZipFile`.
-    Creates :class:`pyspark.context.SparkContext`
+.. py:module:: cli
+
+.. py:function:: cli.main
+
+    Command line application entry point handler.
+
+    * Initializes default logger properties
+    * Creates :py:class:`pyspark.SparkContext`
+    * parses first command line argument to identify the use case and delegates control
+      to use case specific controller.
+
+
+Launching PySpark Applications on bigdata cluster
+-------------------------------------------------
+
+PySpark applications are packaged into an archive, as described in :doc:`Deployment structure <_structure>` so that they can be run on the Bigdata cluster and take advantage of the Spark's distributed processing architecture.
+
+.. image:: ../_static/cluster-overview.png
+   :alt: Spark cluster overview
+
+The PySpark applications are submitted to the cluster via ``spark-submit`` utility.
+
+Here's is a sample shell file showing the ``spark-submit`` command along with several Spark
+configuration parameters. It also shows the application archive attached to the job
+via ``--py-files`` argument. Finally, the PySpark entry point module ``__main__.py`` is passed as the
+first argument to receive execution control, after the Spark job is launched on the cluster.
+
+
+.. literalinclude:: ../../{{cookiecutter.project_name}}/src/automation/run_forecast.sh
+   :language: bash

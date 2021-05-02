@@ -1,31 +1,67 @@
-Usecase specific modules
-========================
+Use case specific modules
+=========================
 
-**Main module**
+:ref:`entry-point`
+
+:ref:`data-extract`
+
+:ref:`model-train`
+
+:ref:`model-score`
+
+:ref:`model-test`
+
+:ref:`push-results`
+
+:ref:`notify-results`
+
+
+.. _entry-point:
+
+Use case entry point
+~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: main
 
-**Data extraction and transformation**
+.. _data-extract:
+
+Data extraction and transformation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: data
 
-**Model training**
+.. _model-train:
+
+Model training
+~~~~~~~~~~~~~~
 
 .. automodule:: train
 
-**Model scoring**
+..  _model-score:
+
+Prediction/Scoring
+~~~~~~~~~~~~~~~~~~
 
 .. automodule:: score
 
-**Model testing**
+.. _model-test:
 
-.. automodule:: test
+Model Performance Monitoring
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Push results**
+.. automodule:: monitor
+
+.. _push-results:
+
+Push Prediction/Scoring Outputs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: report
 
-**Generate notifications**
+.. _notify-results:
+
+Notify Prediction/Scoring Results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. automodule:: notify
 

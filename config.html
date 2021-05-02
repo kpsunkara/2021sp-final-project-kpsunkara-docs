@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Configuration &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <title>Configuration &#8212; Data Science Project Template 0.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="utils.html" title="Common Utilities"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Configuration</a></li> 
       </ul>
     </div>  
@@ -51,20 +51,103 @@
             
   <div class="section" id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
-<p><strong>Application configuration</strong></p>
-<span class="target" id="module-app.resources.config"></span><p>project level config</p>
+<p><a class="reference internal" href="#proj-config"><span class="std std-ref">Project configuration</span></a></p>
+<p><a class="reference internal" href="#app-config"><span class="std std-ref">Application configuration</span></a></p>
+<div class="section" id="module-app.utils.config">
+<span id="project-configuration"></span><span id="proj-config"></span><h2>Project configuration<a class="headerlink" href="#module-app.utils.config" title="Permalink to this headline">¶</a></h2>
+<p>Module to host functionality related to project level configuration</p>
+<dl>
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>ENV_PROFILE_NAME (str): name of the environment variable that holds the</dt><dd><p>application runtime environment as defined in <a class="reference internal" href="#app.utils.config.ENVS" title="app.utils.config.ENVS"><code class="xref py py-class docutils literal notranslate"><span class="pre">ENVS</span></code></a></p>
+</dd>
+<dt>ENV_LOG_LEVEL (str): name of the environment variable that holds the</dt><dd><p>logging level. This will override the default application logging level
+and must match the logging levels of <a class="reference external" href="https://docs.python.org/3/library/logging.html#module-logging" title="(in Python v3.9)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">logging</span></code></a></p>
+</dd>
+</dl>
+<p>env (<a class="reference internal" href="#app.utils.config.ENVS" title="app.utils.config.ENVS"><code class="xref py py-class docutils literal notranslate"><span class="pre">ENVS</span></code></a>): holds the environment the Application was launched in</p>
+<p>config (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>): dictionary holding the effective Application configuration</p>
+<dl class="simple">
+<dt>LOG (logging.Logger): module level variable to hold an instance of</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.Logger" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> for logging</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py class">
+<dt id="app.utils.config.ENVS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">ENVS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.ENVS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumeration to define application runtime environments</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p><code class="xref py py-data docutils literal notranslate"><span class="pre">ENV_PROFILE_NAME</span></code> environment variable
+specifies one of the values</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="app.utils.config.ENVS.parse">
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.ENVS.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class method to parse string into an instance of <a class="reference internal" href="#app.utils.config.ENVS" title="app.utils.config.ENVS"><code class="xref py py-class docutils literal notranslate"><span class="pre">ENVS</span></code></a></p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>val (str): environment name to parse</p>
+</dd>
+<dt>Returns:</dt><dd><p>an instance of <a class="reference internal" href="#app.utils.config.ENVS" title="app.utils.config.ENVS"><code class="xref py py-class docutils literal notranslate"><span class="pre">ENVS</span></code></a></p>
+</dd>
+<dt>Raises:</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.9)"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a>: if the <cite>val</cite> is not a valid environment name</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="app.utils.config.KEYS">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">KEYS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.KEYS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumeration to hold list of Application level configuration items</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.config.get">
+<code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the configuration value given a key.
+<code class="docutils literal notranslate"><span class="pre">None</span></code> if the key does not exist.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.config.get_active_env">
+<code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">get_active_env</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.get_active_env" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the active Application environment as <code class="xref py py-class docutils literal notranslate"><span class="pre">ENVS</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-app.resources.config">
+<span id="application-configuration"></span><span id="app-config"></span><h2>Application configuration<a class="headerlink" href="#module-app.resources.config" title="Permalink to this headline">¶</a></h2>
+<p>Module to capture application level configuration.
+This module builds on top of <a class="reference internal" href="#module-app.utils.config" title="app.utils.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">app.utils.config</span></code></a> module and
+defines additional configuration items that are common across the use case(s).</p>
+<dl class="py function">
+<dt id="app.resources.config.ENVS">
+<code class="sig-prename descclassname"><span class="pre">app.resources.config.</span></code><code class="sig-name descname"><span class="pre">ENVS</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.resources.config.ENVS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <a class="reference internal" href="#app.utils.config.ENVS" title="app.utils.config.ENVS"><code class="xref py py-class docutils literal notranslate"><span class="pre">app.utils.config.ENVS</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
 <dt id="app.resources.config.KEYS">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.resources.config.</span></code><code class="sig-name descname"><span class="pre">KEYS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.resources.config.KEYS" title="Permalink to this definition">¶</a></dt>
-<dd><p>configuration key list</p>
+<dd><p>Enumeration to hold list of common configuration items for use case(s).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.resources.config.get">
+<code class="sig-prename descclassname"><span class="pre">app.resources.config.</span></code><code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.resources.config.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the configuration value given a key.
+<code class="docutils literal notranslate"><span class="pre">None</span></code> if the key does not exist.</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="app.resources.config.get_active_env">
 <code class="sig-prename descclassname"><span class="pre">app.resources.config.</span></code><code class="sig-name descname"><span class="pre">get_active_env</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.resources.config.get_active_env" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the active environment</p>
+<dd><p>Returns the active Application environment as <a class="reference internal" href="#app.utils.config.ENVS" title="app.utils.config.ENVS"><code class="xref py py-class docutils literal notranslate"><span class="pre">app.utils.config.ENVS</span></code></a></p>
 </dd></dl>
 
+</div>
 </div>
 
 
@@ -74,6 +157,15 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Configuration</a><ul>
+<li><a class="reference internal" href="#module-app.utils.config">Project configuration</a></li>
+<li><a class="reference internal" href="#module-app.resources.config">Application configuration</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="utils.html"
                         title="previous chapter">Common Utilities</a></p>
@@ -116,7 +208,7 @@
         <li class="right" >
           <a href="utils.html" title="Common Utilities"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Configuration</a></li> 
       </ul>
     </div>

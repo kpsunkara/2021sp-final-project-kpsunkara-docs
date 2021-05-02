@@ -1,14 +1,21 @@
 Common Utilities
 ================
 
-**Application configuration**
+:ref:`email-util`
 
-.. automodule:: app.utils.config
+:ref:`spark-util`
 
-**Email utility**
+
+.. _email-util:
+
+Email Utils
+~~~~~~~~~~~~~
 
 .. automodule:: app.utils.email
 
-**Spark factory**
+.. _spark-util:
+
+Spark Utils
+~~~~~~~~~~~~~
 
 .. automodule:: app.utils.spark

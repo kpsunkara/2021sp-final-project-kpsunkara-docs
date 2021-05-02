@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Common Utilities &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <title>Common Utilities &#8212; Data Science Project Template 0.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     
@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Configuration" href="config.html" />
-    <link rel="prev" title="Usecase specific modules" href="usecase.html" />
+    <link rel="prev" title="Use case specific modules" href="usecase.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -37,9 +37,9 @@
           <a href="config.html" title="Configuration"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="usecase.html" title="Usecase specific modules"
+          <a href="usecase.html" title="Use case specific modules"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Common Utilities</a></li> 
       </ul>
     </div>  
@@ -51,94 +51,99 @@
             
   <div class="section" id="common-utilities">
 <h1>Common Utilities<a class="headerlink" href="#common-utilities" title="Permalink to this headline">¶</a></h1>
-<p><strong>Application configuration</strong></p>
-<span class="target" id="module-app.utils.config"></span><p>this module hosts config utility functions</p>
-<dl class="py class">
-<dt id="app.utils.config.ENVS">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">ENVS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.ENVS" title="Permalink to this definition">¶</a></dt>
-<dd><p>environment list</p>
-<dl class="py attribute">
-<dt id="app.utils.config.ENVS.DEV">
-<code class="sig-name descname"><span class="pre">DEV</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'dev'</span></em><a class="headerlink" href="#app.utils.config.ENVS.DEV" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="app.utils.config.ENVS.GOLD">
-<code class="sig-name descname"><span class="pre">GOLD</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'gold'</span></em><a class="headerlink" href="#app.utils.config.ENVS.GOLD" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="app.utils.config.ENVS.PLATINUM">
-<code class="sig-name descname"><span class="pre">PLATINUM</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'plat'</span></em><a class="headerlink" href="#app.utils.config.ENVS.PLATINUM" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="app.utils.config.ENVS.SILVER">
-<code class="sig-name descname"><span class="pre">SILVER</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'silver'</span></em><a class="headerlink" href="#app.utils.config.ENVS.SILVER" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="app.utils.config.ENVS.parse">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.ENVS.parse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt id="app.utils.config.KEYS">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">KEYS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.KEYS" title="Permalink to this definition">¶</a></dt>
-<dd><p>configuration key list</p>
-<dl class="py attribute">
-<dt id="app.utils.config.KEYS.EMAIL_FROM">
-<code class="sig-name descname"><span class="pre">EMAIL_FROM</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'email.from'</span></em><a class="headerlink" href="#app.utils.config.KEYS.EMAIL_FROM" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="app.utils.config.KEYS.SMTP_PORT">
-<code class="sig-name descname"><span class="pre">SMTP_PORT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'smtp.port'</span></em><a class="headerlink" href="#app.utils.config.KEYS.SMTP_PORT" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="app.utils.config.KEYS.SMTP_SERVER">
-<code class="sig-name descname"><span class="pre">SMTP_SERVER</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'smtp.server'</span></em><a class="headerlink" href="#app.utils.config.KEYS.SMTP_SERVER" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<p><a class="reference internal" href="#email-util"><span class="std std-ref">Email Utils</span></a></p>
+<p><a class="reference internal" href="#spark-util"><span class="std std-ref">Spark Utils</span></a></p>
+<div class="section" id="module-app.utils.email">
+<span id="email-utils"></span><span id="email-util"></span><h2>Email Utils<a class="headerlink" href="#module-app.utils.email" title="Permalink to this headline">¶</a></h2>
+<p>This module hosts helper functions to send out email notifications.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>LOG (logging.Logger): module level variable to hold an instance of</dt><dd><p><a class="reference external" href="https://docs.python.org/3/library/logging.html#logging.Logger" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a> for logging</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py function">
+<dt id="app.utils.email.send_mail">
+<code class="sig-prename descclassname"><span class="pre">app.utils.email.</span></code><code class="sig-name descname"><span class="pre">send_mail</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">toAdd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">attachments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.email.send_mail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send plain text email, optionally with attachments.</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>Delegates to <a class="reference internal" href="#app.utils.email.send_mail_rtf" title="app.utils.email.send_mail_rtf"><code class="xref py py-data docutils literal notranslate"><span class="pre">send_mail_rtf</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
-<dt id="app.utils.config.get">
-<code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.get" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="app.utils.email.send_mail_rtf">
+<code class="sig-prename descclassname"><span class="pre">app.utils.email.</span></code><code class="sig-name descname"><span class="pre">send_mail_rtf</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_add</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subject</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plain_body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">html_body</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">attachments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.email.send_mail_rtf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send rich text email with embedded objects like charts</p>
+<dl>
+<dt>Args:</dt><dd><p>to_add (str): one or more email addresses, separated by comma</p>
+<p>subject (str): subject of the email</p>
+<dl class="simple">
+<dt>plain_body (str): plain text body of the email message.</dt><dd><p>Rendered by email readers that do not support rich text format</p>
+</dd>
+<dt>html_body (str): rich text body of the message. May have placeholders</dt><dd><p>to embed objects like charts.
+eg. <code class="docutils literal notranslate"><span class="pre">&lt;img</span> <span class="pre">src=&quot;cid:{%(outliers.png)s}&quot;</span> <span class="pre">alt=&quot;Outliers</span> <span class="pre">chart&quot;/&gt;</span></code></p>
+</dd>
+</dl>
+<p>attachments (list[str or os.PathLike]): one of more attachments to the message.</p>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="py function">
-<dt id="app.utils.config.get_active_env">
-<code class="sig-prename descclassname"><span class="pre">app.utils.config.</span></code><code class="sig-name descname"><span class="pre">get_active_env</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.config.get_active_env" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p><strong>Email utility</strong></p>
-<span class="target" id="module-app.utils.email"></span><p>this module hosts helper functions for email notifications</p>
-<p><strong>Spark factory</strong></p>
-<span class="target" id="module-app.utils.spark"></span><p>Module to host spark related utility functions.</p>
+</div>
+<div class="section" id="module-app.utils.spark">
+<span id="spark-utils"></span><span id="spark-util"></span><h2>Spark Utils<a class="headerlink" href="#module-app.utils.spark" title="Permalink to this headline">¶</a></h2>
+<p>Module to host pyspark related utility functions.</p>
 <dl class="py function">
 <dt id="app.utils.spark.appId">
 <code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">appId</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.appId" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the <code class="docutils literal notranslate"><span class="pre">applicationId</span></code> of active <a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.utils.spark.init">
+<code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">init</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create or initialize a <a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a></p>
+<blockquote>
+<div><p>In case the <code class="docutils literal notranslate"><span class="pre">pyspark</span></code> module is not imported, search the well known locations
+using <code class="docutils literal notranslate"><span class="pre">findspark</span></code> and then import <code class="docutils literal notranslate"><span class="pre">pyspark</span></code></p>
+</div></blockquote>
+<dl class="simple">
+<dt>Note:</dt><dd><p>Only one instance of <a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a> is ensured.</p>
+</dd>
+<dt>Args:</dt><dd><p>sc (<a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a>): an instance of existing
+<a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new <code class="docutils literal notranslate"><span class="pre">SparkContext</span></code> will be
+created with default options: <code class="xref py py-data docutils literal notranslate"><span class="pre">app.utils.SPARK_CONFIG</span></code></p>
+</dd>
+</dl>
+<p>Returns: None</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="app.utils.spark.sparkContext">
 <code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">sparkContext</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.sparkContext" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create or initialize a <a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a> and return it.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sc (<a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a>): an instance of existing
+<a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="app.utils.spark.sqlContext">
 <code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">sqlContext</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.sqlContext" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Create or retrieve an existing <a class="reference external" href="/api/python/pyspark.sql.html#pyspark.sql.SQLContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SQLContext</span></code></a></p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>An instance of <a class="reference external" href="/api/python/pyspark.sql.html#pyspark.sql.SQLContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SQLContext</span></code></a> created from exiting
+<a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">SparkContext</span></code></a> initialized for Hive</p>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="py function">
-<dt id="app.utils.spark.version">
-<code class="sig-prename descclassname"><span class="pre">app.utils.spark.</span></code><code class="sig-name descname"><span class="pre">version</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.utils.spark.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+</div>
 </div>
 
 
@@ -148,9 +153,18 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Common Utilities</a><ul>
+<li><a class="reference internal" href="#module-app.utils.email">Email Utils</a></li>
+<li><a class="reference internal" href="#module-app.utils.spark">Spark Utils</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="usecase.html"
-                        title="previous chapter">Usecase specific modules</a></p>
+                        title="previous chapter">Use case specific modules</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="config.html"
                         title="next chapter">Configuration</a></p>
@@ -188,9 +202,9 @@
           <a href="config.html" title="Configuration"
              >next</a> |</li>
         <li class="right" >
-          <a href="usecase.html" title="Usecase specific modules"
+          <a href="usecase.html" title="Use case specific modules"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Common Utilities</a></li> 
       </ul>
     </div>

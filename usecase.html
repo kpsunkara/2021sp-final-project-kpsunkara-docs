@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usecase specific modules &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <title>Use case specific modules &#8212; Data Science Project Template 0.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     
@@ -39,8 +39,8 @@
         <li class="right" >
           <a href="app.html" title="Application Entry point"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Usecase specific modules</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Use case specific modules</a></li> 
       </ul>
     </div>  
 
@@ -49,158 +49,132 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="usecase-specific-modules">
-<h1>Usecase specific modules<a class="headerlink" href="#usecase-specific-modules" title="Permalink to this headline">¶</a></h1>
-<p><strong>Main module</strong></p>
-<span class="target" id="module-main"></span><p>Use case entry point module</p>
+  <div class="section" id="use-case-specific-modules">
+<h1>Use case specific modules<a class="headerlink" href="#use-case-specific-modules" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="#entry-point"><span class="std std-ref">Use case entry point</span></a></p>
+<p><a class="reference internal" href="#data-extract"><span class="std std-ref">Data extraction and transformation</span></a></p>
+<p><a class="reference internal" href="#model-train"><span class="std std-ref">Model training</span></a></p>
+<p><a class="reference internal" href="#model-score"><span class="std std-ref">Prediction/Scoring</span></a></p>
+<p><a class="reference internal" href="#model-test"><span class="std std-ref">Model Performance Monitoring</span></a></p>
+<p><a class="reference internal" href="#push-results"><span class="std std-ref">Push Prediction/Scoring Outputs</span></a></p>
+<p><a class="reference internal" href="#notify-results"><span class="std std-ref">Notify Prediction/Scoring Results</span></a></p>
+<div class="section" id="module-main">
+<span id="use-case-entry-point"></span><span id="entry-point"></span><h2>Use case entry point<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h2>
+<p>This module coordinates the execution of various tasks related to the use case.</p>
 <dl class="py class">
 <dt id="main.Cli">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">main.</span></code><code class="sig-name descname"><span class="pre">Cli</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.Cli" title="Permalink to this definition">¶</a></dt>
-<dd><p>Use case specific cli/entry-point class</p>
+<dd><p>Use case specific command line application entry-point</p>
+<dl>
+<dt>Attributes:</dt><dd><p>tasks (list): one or more tasks to launch.</p>
+<p>args (list): command line arguments.</p>
+<p>runcontrol (<code class="xref py py-class docutils literal notranslate"><span class="pre">RunControl</span></code>): runcontrol instance.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="main.Cli.process">
 <code class="sig-name descname"><span class="pre">process</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.Cli.process" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Instance method to process command line and launch one or more task(s)</p>
+</dd></dl>
 
 </dd></dl>
 
-<dl class="py class">
-<dt id="main.TASKS">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">main.</span></code><code class="sig-name descname"><span class="pre">TASKS</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS" title="Permalink to this definition">¶</a></dt>
-<dd><p>An enumeration.</p>
-<dl class="py attribute">
-<dt id="main.TASKS.EXTRACT">
-<code class="sig-name descname"><span class="pre">EXTRACT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#main.TASKS.EXTRACT" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="main.TASKS.FORECAST">
-<code class="sig-name descname"><span class="pre">FORECAST</span></code><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#main.TASKS.FORECAST" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="main.TASKS.NOTIFY">
-<code class="sig-name descname"><span class="pre">NOTIFY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#main.TASKS.NOTIFY" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="main.TASKS.REPORT">
-<code class="sig-name descname"><span class="pre">REPORT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#main.TASKS.REPORT" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="main.TASKS.TEST">
-<code class="sig-name descname"><span class="pre">TEST</span></code><em class="property"> <span class="pre">=</span> <span class="pre">9</span></em><a class="headerlink" href="#main.TASKS.TEST" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt id="main.TASKS.TRAIN">
-<code class="sig-name descname"><span class="pre">TRAIN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">5</span></em><a class="headerlink" href="#main.TASKS.TRAIN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.compare">
-<code class="sig-name descname"><span class="pre">compare</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.compare" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.equals">
-<code class="sig-name descname"><span class="pre">equals</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.equals" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.equals_any">
-<code class="sig-name descname"><span class="pre">equals_any</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">tasks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.equals_any" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.first_task">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">first_task</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.first_task" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.get_next_tasks">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">get_next_tasks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromtask</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.get_next_tasks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.last_task">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">last_task</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.last_task" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.next_task">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">next_task</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.next_task" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.parse">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">parse</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.parse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="main.TASKS.previous_task">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">previous_task</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#main.TASKS.previous_task" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<p><strong>Data extraction and transformation</strong></p>
-<span class="target" id="module-data"></span><dl class="py function">
+</div>
+<div class="section" id="module-data">
+<span id="data-extraction-and-transformation"></span><span id="data-extract"></span><h2>Data extraction and transformation<a class="headerlink" href="#module-data" title="Permalink to this headline">¶</a></h2>
+<p>Module to host functionality related to data extraction and transformation</p>
+<dl class="py function">
 <dt id="data.extract">
 <code class="sig-prename descclassname"><span class="pre">data.</span></code><code class="sig-name descname"><span class="pre">extract</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.extract" title="Permalink to this definition">¶</a></dt>
-<dd><p>extracts data and stores into use case specific area</p>
+<dd><p>Module entry point to coordinate the data extraction and transformation</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>Simple data sourcing and wrangling may be managed with module level functions.
+However, for complex data workflows, an object oriented approach is recommended.</p>
+</dd>
+<dt>Args:</dt><dd><p>args (list): command line arguments related to the task</p>
+</dd>
+</dl>
 </dd></dl>
 
-<p><strong>Model training</strong></p>
-<span class="target" id="module-train"></span><p>module to host functionality related to model training</p>
+</div>
+<div class="section" id="module-train">
+<span id="model-training"></span><span id="model-train"></span><h2>Model training<a class="headerlink" href="#module-train" title="Permalink to this headline">¶</a></h2>
+<p>This module hosts functionality related to Model training</p>
 <dl class="py function">
 <dt id="train.train">
 <code class="sig-prename descclassname"><span class="pre">train.</span></code><code class="sig-name descname"><span class="pre">train</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#train.train" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None</p>
+<dd><p>Module entry point to coordinate model training tasks</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>args (list): command line arguments related to the task</p>
 </dd>
 </dl>
 </dd></dl>
 
-<p><strong>Model scoring</strong></p>
-<span class="target" id="module-score"></span><p>module to host functionality related to usecases/score</p>
+</div>
+<div class="section" id="module-score">
+<span id="prediction-scoring"></span><span id="model-score"></span><h2>Prediction/Scoring<a class="headerlink" href="#module-score" title="Permalink to this headline">¶</a></h2>
+<p>This module hosts functionality related to prediction/scoring tasks</p>
 <dl class="py function">
 <dt id="score.forecast">
 <code class="sig-prename descclassname"><span class="pre">score.</span></code><code class="sig-name descname"><span class="pre">forecast</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#score.forecast" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None</p>
+<dd><p>Module entry point to coordinate prediction tasks</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>args (list): command line arguments related to the task</p>
 </dd>
 </dl>
 </dd></dl>
 
-<p><strong>Model testing</strong></p>
-<span class="target" id="module-test"></span><dl class="py function">
-<dt id="test.test">
-<code class="sig-prename descclassname"><span class="pre">test.</span></code><code class="sig-name descname"><span class="pre">test</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test.test" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</div>
+<div class="section" id="module-monitor">
+<span id="model-performance-monitoring"></span><span id="model-test"></span><h2>Model Performance Monitoring<a class="headerlink" href="#module-monitor" title="Permalink to this headline">¶</a></h2>
+<p>Module to host functionality related to ongoing monitoring of model performance</p>
+<dl class="py function">
+<dt id="monitor.run">
+<code class="sig-prename descclassname"><span class="pre">monitor.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#monitor.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Module entry point to coordinate the steps related to ongoing monitoring of model performance.</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>Ongoing model performance monitoring helps detect drift in performance that require
+further investigation, training and/or tuning.</p>
+</dd>
+<dt>Args:</dt><dd><p>args (list): command line arguments related to the task</p>
+</dd>
+</dl>
+</dd></dl>
 
-<p><strong>Push results</strong></p>
-<span class="target" id="module-report"></span><p>export usecases results to a file</p>
+</div>
+<div class="section" id="module-report">
+<span id="push-prediction-scoring-outputs"></span><span id="push-results"></span><h2>Push Prediction/Scoring Outputs<a class="headerlink" href="#module-report" title="Permalink to this headline">¶</a></h2>
+<p>This module hosts functionality related to pushing down prediction/scoring outputs
+to downstream applications/processes.</p>
 <dl class="py function">
 <dt id="report.report">
 <code class="sig-prename descclassname"><span class="pre">report.</span></code><code class="sig-name descname"><span class="pre">report</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#report.report" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>exported file path</p>
+<dd><p>Module entry point to coordinate model training tasks</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>args (list): command line arguments related to the task</p>
 </dd>
 </dl>
 </dd></dl>
 
-<p><strong>Generate notifications</strong></p>
-<span class="target" id="module-notify"></span><p>push results to downstream</p>
+</div>
+<div class="section" id="module-notify">
+<span id="notify-prediction-scoring-results"></span><span id="notify-results"></span><h2>Notify Prediction/Scoring Results<a class="headerlink" href="#module-notify" title="Permalink to this headline">¶</a></h2>
+<p>This module hosts functionality related to notifying the prediction/scoring results</p>
 <dl class="py function">
 <dt id="notify.notify">
 <code class="sig-prename descclassname"><span class="pre">notify.</span></code><code class="sig-name descname"><span class="pre">notify</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reportPath</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#notify.notify" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Module entry point to coordinate notification of prediction/scoring results</p>
+<dl>
+<dt>Note:</dt><dd><p>Notification of the availability of latest prediction outputs can be
+by email or invoking an API of a downstream application.</p>
+</dd>
+<dt>Args:</dt><dd><p>args (list): command line arguments related to the task.</p>
+<p>reportPath(str): path to the latest prediction/scoring results.</p>
+</dd>
+</dl>
+</dd></dl>
 
+</div>
 </div>
 
 
@@ -210,6 +184,20 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Use case specific modules</a><ul>
+<li><a class="reference internal" href="#module-main">Use case entry point</a></li>
+<li><a class="reference internal" href="#module-data">Data extraction and transformation</a></li>
+<li><a class="reference internal" href="#module-train">Model training</a></li>
+<li><a class="reference internal" href="#module-score">Prediction/Scoring</a></li>
+<li><a class="reference internal" href="#module-monitor">Model Performance Monitoring</a></li>
+<li><a class="reference internal" href="#module-report">Push Prediction/Scoring Outputs</a></li>
+<li><a class="reference internal" href="#module-notify">Notify Prediction/Scoring Results</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="app.html"
                         title="previous chapter">Application Entry point</a></p>
@@ -252,8 +240,8 @@
         <li class="right" >
           <a href="app.html" title="Application Entry point"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Usecase specific modules</a></li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Use case specific modules</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

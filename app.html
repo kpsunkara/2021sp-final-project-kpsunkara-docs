@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Application Entry point &#8212; pySpark ML App Template 0.0.1 documentation</title>
+    <title>Application Entry point &#8212; Data Science Project Template 0.0.2 documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     
@@ -17,8 +17,8 @@
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Usecase specific modules" href="usecase.html" />
-    <link rel="prev" title="{{cookiecutter.project_name}}" href="_structure.html" />
+    <link rel="next" title="Use case specific modules" href="usecase.html" />
+    <link rel="prev" title="Welcome to Data Science Project Template" href="_readme.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -34,12 +34,12 @@
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="usecase.html" title="Usecase specific modules"
+          <a href="usecase.html" title="Use case specific modules"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="_structure.html" title="{{cookiecutter.project_name}}"
+          <a href="_readme.html" title="Welcome to Data Science Project Template"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Application Entry point</a></li> 
       </ul>
     </div>  
@@ -51,8 +51,65 @@
             
   <div class="section" id="module-cli">
 <span id="application-entry-point"></span><h1>Application Entry point<a class="headerlink" href="#module-cli" title="Permalink to this headline">¶</a></h1>
-<p>Command line application entry point handler <a class="reference external" href="https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code></a>.
-Creates <code class="xref py py-class docutils literal notranslate"><span class="pre">pyspark.context.SparkContext</span></code></p>
+<dl class="py function">
+<dt id="cli.cli.main">
+<code class="sig-prename descclassname"><span class="pre">cli.</span></code><code class="sig-name descname"><span class="pre">main</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cli.cli.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command line application entry point handler.</p>
+<ul class="simple">
+<li><p>Initializes default logger properties</p></li>
+<li><p>Creates <a class="reference external" href="/api/python/pyspark.html#pyspark.SparkContext" title="(in pyspark v2.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyspark.SparkContext</span></code></a></p></li>
+<li><p>parses first command line argument to identify the use case and delegates control
+to use case specific controller.</p></li>
+</ul>
+</dd></dl>
+
+<div class="section" id="launching-pyspark-applications-on-bigdata-cluster">
+<h2>Launching PySpark Applications on bigdata cluster<a class="headerlink" href="#launching-pyspark-applications-on-bigdata-cluster" title="Permalink to this headline">¶</a></h2>
+<p>PySpark applications are packaged into an archive, as described in <a class="reference internal" href="_structure.html"><span class="doc">Deployment structure</span></a> so that they can be run on the Bigdata cluster and take advantage of the Spark’s distributed processing architecture.</p>
+<img alt="Spark cluster overview" src="_images/cluster-overview.png" />
+<p>The PySpark applications are submitted to the cluster via <code class="docutils literal notranslate"><span class="pre">spark-submit</span></code> utility.</p>
+<p>Here’s is a sample shell file showing the <code class="docutils literal notranslate"><span class="pre">spark-submit</span></code> command along with several Spark
+configuration parameters. It also shows the application archive attached to the job
+via <code class="docutils literal notranslate"><span class="pre">--py-files</span></code> argument. Finally, the PySpark entry point module <code class="docutils literal notranslate"><span class="pre">__main__.py</span></code> is passed as the
+first argument to receive execution control, after the Spark job is launched on the cluster.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
+
+<span class="nb">cd</span> <span class="si">${</span><span class="nv">usecase</span><span class="p">.folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">deploy</span><span class="p">.root</span><span class="si">}</span>/deployments/<span class="si">${</span><span class="nv">project</span><span class="p">.artifactId</span><span class="si">}</span>
+
+<span class="nb">source</span> ./source-env.sh
+<span class="nv">step</span><span class="o">=</span>forecast
+
+<span class="c1"># submit spark job</span>
+<span class="nv">$spark_home</span>/bin/spark-submit <span class="se">\</span>
+    --verbose<span class="se">\</span>
+    --queue <span class="nv">$queue</span> <span class="se">\</span>
+    --master yarn <span class="se">\</span>
+    --deploy-mode cluster <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.app.name=</span><span class="si">${</span><span class="nv">project</span><span class="p">.artifactId</span><span class="si">}</span><span class="s2">-</span><span class="nv">$step</span><span class="s2">&quot;</span><span class="se">\</span>
+    --conf <span class="s2">&quot;spark.sql.parquet.enableVectorizedReader=false&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.sql.parquet.binaryasstring=true&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.yarn.appMasterEnv.ENV_NAME=</span><span class="si">${</span><span class="nv">profiles</span><span class="p">.active</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.yarn.appMasterEnv.SPARK_HOME=</span><span class="nv">$spark_home</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.yarn.appMasterEnv.PYSPARK_PYTHON=</span><span class="nv">$py35</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON=</span><span class="nv">$py35</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.yarn.executorEnv.ENV_NAME=</span><span class="si">${</span><span class="nv">profiles</span><span class="p">.active</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.executorEnv.SPARK_HOME=</span><span class="nv">$spark_home</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.executorEnv.PYSPARK_PYTHON=</span><span class="nv">$py35</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.executorEnv.PYSPARK_DRIVER_PYTHON=</span><span class="nv">$py35</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.pyspark.python=</span><span class="nv">$py35</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.pyspark.driver.python=</span><span class="nv">$py35</span><span class="s2">&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.driver.cores=8&quot;</span><span class="se">\</span>
+    --conf <span class="s2">&quot;spark.driver.memory=12g&quot;</span><span class="se">\</span>
+    --conf <span class="s2">&quot;spark.executor.memory=8g&quot;</span><span class="se">\</span>
+    --conf <span class="s2">&quot;spark.yarn.maxAppAttempts=1&quot;</span> <span class="se">\</span>
+    --conf <span class="s2">&quot;spark.yarn.archive=</span><span class="nv">$hive_home</span><span class="s2">/spark-jars.zip&quot;</span> <span class="se">\</span>
+    --jars <span class="s2">&quot;</span><span class="nv">$hive_home</span><span class="s2">/hive-spark.jar&quot;</span> <span class="se">\</span>
+    --py-files <span class="s2">&quot;</span><span class="si">${</span><span class="nv">project</span><span class="p">.build.finalName</span><span class="si">}</span><span class="s2">-pkg.zip&quot;</span> <span class="se">\</span>
+    <span class="s2">&quot;__main__.py&quot;</span> <span class="s2">&quot;{{cookiecutter.usecase}}&quot;</span> <span class="s2">&quot;</span><span class="nv">$step</span><span class="s2">&quot;</span> <span class="nv">$*</span> <span class="se">\</span>
+    &gt;&gt; <span class="nv">$logdir</span>/<span class="nv">$step</span>.log <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -62,12 +119,20 @@ Creates <code class="xref py py-class docutils literal notranslate"><span class=
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Application Entry point</a><ul>
+<li><a class="reference internal" href="#launching-pyspark-applications-on-bigdata-cluster">Launching PySpark Applications on bigdata cluster</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="_structure.html"
-                        title="previous chapter">{{cookiecutter.project_name}}</a></p>
+  <p class="topless"><a href="_readme.html"
+                        title="previous chapter">Welcome to Data Science Project Template</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="usecase.html"
-                        title="next chapter">Usecase specific modules</a></p>
+                        title="next chapter">Use case specific modules</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -99,12 +164,12 @@ Creates <code class="xref py py-class docutils literal notranslate"><span class=
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="usecase.html" title="Usecase specific modules"
+          <a href="usecase.html" title="Use case specific modules"
              >next</a> |</li>
         <li class="right" >
-          <a href="_structure.html" title="{{cookiecutter.project_name}}"
+          <a href="_readme.html" title="Welcome to Data Science Project Template"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">pySpark ML App Template 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Data Science Project Template 0.0.2 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Application Entry point</a></li> 
       </ul>
     </div>
