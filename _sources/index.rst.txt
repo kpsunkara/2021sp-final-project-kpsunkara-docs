@@ -4,11 +4,11 @@ Welcome to Data Science Project Template
 |repo_link| serves as a template to generate a project structure and boilerplate
 code for **Python + Spark Data Science Applications**, targeting Bigdata environment.
 In addition to generating boilerplate code, the template also includes scripts
-required to build, package and deploy the app via CI/CD pipeline, in a single click!
+required to build, package and deploy the app via CI/CD pipeline.
 
 .. |repo_link| raw:: html
 
-   <a href="https://github.com/kpsunkara/csci-e-29-final-project" target="_blank">This repo</a>
+   <a href="https://github.com/csci-e-29/2021sp-final-project-kpsunkara" target="_blank">This repo</a>
 
 
 Contents
