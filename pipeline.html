@@ -52,16 +52,14 @@
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Orchestrates the build, package and deployment stages for Python + Spark (pySpark) apps</p></li>
-<li><p>Performs sub module packaging for Python code into a distributable archive, which is used to serve up pySpark apps to Spark executors for distributed processing workloads</p></li>
-<li><p>Organizes Python entry point module and the python distributable archive into one final deployable artifact through XLR</p></li>
-<li><p>Packages necessary XLR install scripts for automated deployment of the final artifact into Bigdata/Cornerstone or a similar environment supporting spark workloads</p></li>
-<li><p>Supports packaging of pySpark ML apps</p></li>
+<li><p>Performs sub module packaging for Python code into a distributable archive, which is used to serve up pySpark apps to Spark executors on the cluster for distributed processing workloads</p></li>
+<li><p>Organizes Python entry point module and the python distributable archive into one final deployable artifact through XLRelease CD Pipeline</p></li>
+<li><p>Package necessary CD Pipeline installation scripts for automated deployment of the final artifact into Bigdata or a similar environment supporting Spark workloads</p></li>
 <li><p>Bundles multiple pipeline steps into one stage to promote consistent build, package and deployment process for pySpark apps</p></li>
 <li><p>Hooks provide the ability to run custom actions between predefined stages</p></li>
-<li><p>Implements a design pattern using Groovy Closures to promote an object oriented reuse of code across Global Vars/ Pipeline components</p></li>
 </ul>
 <img alt="_images/pipeline.png" src="_images/pipeline.png" />
-<p>The pipeline starts with checkout and triggers maven build, package and deploy goals using either <cite>release</cite>, <cite>test</cite> or <cite>dev</cite> profile tag. The effective profile tag takes on a value of either <code class="docutils literal notranslate"><span class="pre">release</span></code> or <code class="docutils literal notranslate"><span class="pre">test</span></code> by matching the name of the build branch with <code class="docutils literal notranslate"><span class="pre">releaseBranches</span></code> or <code class="docutils literal notranslate"><span class="pre">testBranches</span></code> parameters (see parameter list below), otherwise it defaults to <code class="docutils literal notranslate"><span class="pre">dev</span></code>. The final artifact version identifier is set to either <code class="docutils literal notranslate"><span class="pre">RELEASE</span></code>, if the branch name matches with <code class="docutils literal notranslate"><span class="pre">releaseBranches</span></code>, otherwise it’s set to <code class="docutils literal notranslate"><span class="pre">SNAPSHOT</span></code>. This step also automates deploying the package through XLR. If sonarProfile details are provided, <cite>sonarscanonly</cite> is triggered.</p>
+<p>The pipeline starts with checkout and triggers maven build, package and deploy goals using either <cite>release</cite>, <cite>test</cite> or <cite>dev</cite> profile tag. The effective profile tag takes on a value of either <code class="docutils literal notranslate"><span class="pre">release</span></code> or <code class="docutils literal notranslate"><span class="pre">test</span></code> by matching the name of the build branch with <code class="docutils literal notranslate"><span class="pre">releaseBranches</span></code> or <code class="docutils literal notranslate"><span class="pre">testBranches</span></code> parameters (see parameter list below), otherwise it defaults to <code class="docutils literal notranslate"><span class="pre">dev</span></code>. The final artifact version identifier is set to either <code class="docutils literal notranslate"><span class="pre">RELEASE</span></code>, if the branch name matches with <code class="docutils literal notranslate"><span class="pre">releaseBranches</span></code>, otherwise it’s set to <code class="docutils literal notranslate"><span class="pre">SNAPSHOT</span></code>. This step also automates deploying the package through XLRelease. If sonarProfile details are provided, <cite>sonarscanonly</cite> is triggered.</p>
 </div>
 <div class="section" id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
@@ -86,10 +84,10 @@
 <td><p>a parameterish-block or a map of details of project’s sonarqube scan profile (optional). When present, user property is required. projectName and projectUrl properties are optional and default to details from the build branch. ‘language’, ‘qualitygate’ and ‘sources’ are optional and passed thro.</p></td>
 </tr>
 <tr class="row-odd"><td><p>xlrProfile</p></td>
-<td><p>a parameterish-block or a map of project’s XLR deployment details (optional). When present, all parameters are required. Note: To generate XLR subscription ID, refer: <a class="reference external" href="https://enterprise-confluence.acme.com/confluence/pages/viewpage.action?spaceKey=ECCS&amp;title=XLR+-+API+details">https://enterprise-confluence.acme.com/confluence/pages/viewpage.action?spaceKey=ECCS&amp;title=XLR+-+API+details</a></p></td>
+<td><p>a parameterish-block or a map of project’s XLRelease deployment details (optional). When present, all parameters are required.</p></td>
 </tr>
 <tr class="row-even"><td><p>slackProfile</p></td>
-<td><p>a parameterish-block or a map of team’s slack channel details to send build status notifications. Note: To generate slaockToken, refer: <a class="reference external" href="https://enterprise-confluence.acme.com/confluence/display/GAF/CTO+Shared+Library#CTOSharedLibrary-IntegratingJenkinswithSlackforBuildNotifications">https://enterprise-confluence.acme.com/confluence/display/GAF/CTO+Shared+Library#CTOSharedLibrary-IntegratingJenkinswithSlackforBuildNotifications</a></p></td>
+<td><p>a parameterish-block or a map of team’s slack channel details to send build status notifications.</p></td>
 </tr>
 <tr class="row-odd"><td><p>buildArgs</p></td>
 <td><p>maven build arguments (optional)</p></td>
@@ -101,10 +99,10 @@
 <td><p>code block/hook to run after building the package(s) and installed to Nexus</p></td>
 </tr>
 <tr class="row-even"><td><p>preDeploy</p></td>
-<td><p>code block/hook to run before submitting XLR deployment</p></td>
+<td><p>code block/hook to run before submitting XLRelease deployment</p></td>
 </tr>
 <tr class="row-odd"><td><p>postBuild</p></td>
-<td><p>code block/hook to run after submitting XLR deployment</p></td>
+<td><p>code block/hook to run after submitting XLRelease deployment</p></td>
 </tr>
 </tbody>
 </table>
